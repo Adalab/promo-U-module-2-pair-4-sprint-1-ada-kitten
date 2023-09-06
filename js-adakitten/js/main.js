@@ -50,4 +50,5 @@ const kittenThree = `<li class="card">
 	</li>`; 
 
 
-dataElement.innerHTML = dataElement.innerHTML + 'kittenOne+kittenTwo+kittenThree'; 
+dataElement.innerHTML = dataElement.innerHTML + kittenOne + kittenTwo + kittenThree; 
+
