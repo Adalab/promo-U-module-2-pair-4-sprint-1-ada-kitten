@@ -2,22 +2,38 @@
 
 const listElement = document.querySelector('.js-list');
 
+/*const kittenOne = `<li class="card">
+<article>*/
+
 const kittenOne = `<li class="card">
 <article>
-  <img
-	class="card_img"
-	src="https://dev.adalab.es/gato-siames.webp"
-	alt="siames-cat"
-  />
-  <h3 class="card_title">Anastacio</h3>
+  kittenImageOne;
+  kittenNameOne;
+  kittenRaceOne;
   <h4 class="card_race">Siamés</h4>
   <p class="card_description">
-			Porte elegante, su patrón de color tan característico y sus ojos
-			de un azul intenso, pero su historia se remonta a Asía al menos
-			hace 500 años, donde tuvo su origen muy posiblemente.
+            Porte elegante, su patrón de color tan característico y sus ojos
+            de un azul intenso, pero su historia se remonta a Asía al menos
+            hace 500 años, donde tuvo su origen muy posiblemente.
    </p>
 </article>
 </li>`;
+  const kittenImageOne = `<img
+	class="card_img"
+	src="https://dev.adalab.es/gato-siames.webp"
+	alt="siames-cat"
+  />`;
+  const kittenNameOne = `<h3 class="card_title">Anastacio</h3>`;
+  const kittenRaceOne = `<h4 class="card_race">Siamés</h4>`;
+  const kittenDescOne = `<p class="card_description">
+			Porte elegante, su patrón de color tan característico y sus ojos
+			de un azul intenso, pero su historia se remonta a Asía al menos
+			hace 500 años, donde tuvo su origen muy posiblemente.
+   </p>`;
+
+
+/*</article>
+</li>`;*/
 
 const kittenTwo = `<li class="card"> 
 	<img 
