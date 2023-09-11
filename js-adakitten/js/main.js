@@ -66,7 +66,46 @@ const kittenThree = `<li class="card">
 listElement.innerHTML = kittenOne+kittenTwo+kittenThree; 
 
 
+const input_search_desc = document.querySelector('.js_in_search_desc');
+const descrSearchText = input_search_desc.value;
+const result = document.querySelector ('.js-list');
+console.log(result);
+if( kittenDescOne.includes(descrSearchText) ) {
+  result.innerHTML = kittenOne;
+}
+if( kittenDescTwo.includes(descrSearchText) ) {
+  result.innerHTML = kittenTwo;
+}
+if( kittenDescThree.includes(descrSearchText) ) {
+  result.innerHTML = kittenThree;
+}
+if(descrSearchText === "") {
+result.innerHTML = kittenOne+kittenTwo+kittenThree;
+}
+
+const formSection = document.querySelector('.js-new-form');
+formSection.classList.remove('collapsed');
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+const sectionButton = document.querySelector(".js-btn-add");
 
 
+sectionButton.addEventListener ('click', (event)=> {
+  event.preventDefault();
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
 
+if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+	console.log (labelMessageError); 
+   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
+} 
+else (valueDesc !== '' || valuePhoto !== '' || valueName !== ''); {
+	labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
+} }
+); 
 
+const formSection = document.querySelector('.js-new-form');
+formSection.classList.add('collapsed');
