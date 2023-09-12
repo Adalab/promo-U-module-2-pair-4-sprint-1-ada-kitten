@@ -92,7 +92,7 @@ const labelMessageError = document.querySelector('.js-label-error');
 const sectionButton = document.querySelector(".js-btn-add");
 
 
-sectionButton.addEventListener ('click', (event)=> {
+sectionButton.addEventListener('click', (event)=> {
   event.preventDefault();
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
@@ -104,8 +104,34 @@ if (valueDesc === '' || valuePhoto === '' || valueName === '') {
 } 
 else (valueDesc !== '' || valuePhoto !== '' || valueName !== ''); {
 	labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
-} }
+} 
+}
 ); 
 
-const formSection = document.querySelector('.js-new-form');
-formSection.classList.add('collapsed');
+
+const formSection1 = document.querySelector('.js-new-form');
+
+const linkNewFormElement = document.querySelector ('.js-btn'); 
+
+
+linkNewFormElement.addEventListener('click', handleClickNewCatForm);
+
+function showNewCatForm() {
+	formSection1.classList.remove('collapsed');
+  }
+function hideNewCatForm() {
+	formSection1.classList.add('collapsed');
+  }
+
+
+function handleClickNewCatForm(event) {
+	event.preventDefault();
+	if (formSection1.classList.contains('collapsed')) {
+		showNewCatForm(); 
+	} else {
+		hideNewCatForm(); 
+	}
+  }
+
+
+  
