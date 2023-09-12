@@ -109,7 +109,7 @@ else (valueDesc !== '' || valuePhoto !== '' || valueName !== ''); {
 ); 
 
 
-const formSection1 = document.querySelector('.js-new-form');
+/*const formSection1 = document.querySelector('.js-new-form');
 
 const linkNewFormElement = document.querySelector ('.js-btn'); 
 
@@ -134,4 +134,30 @@ function handleClickNewCatForm(event) {
   }
 
 
+  linkNewFormElement.addEventListener('click', handleClickNewCatForm);*/
+
+
+  	const linkNewFormElement = document.querySelector('.js-btn');
+	const newForm= document.querySelector('.js-new-form');
+
+function showNewCatForm() {
+  newForm.classList.remove('collapsed');
+}
+function hideNewCatForm() {
+  newForm.classList.add('collapsed');
+}
+
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
   
+  if (newForm.classList.contains('collapsed')) {
+
+    showNewCatForm();
+
+  } else {
+    hideNewCatForm();
+  }
+}
+
+linkNewFormElement.addEventListener('click', handleClickNewCatForm);
