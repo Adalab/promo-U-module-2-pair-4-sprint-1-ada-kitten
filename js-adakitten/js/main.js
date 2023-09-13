@@ -65,6 +65,27 @@ const kittenThree = `<li class="card">
 
 listElement.innerHTML = kittenOne+kittenTwo+kittenThree; 
 
+const formSection = document.querySelector('.js-new-form');
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const inputRace = document.querySelector('js-input-race');
+
+function renderKitten(inputDesc, inputPhoto, inputRace, inputName){
+	const result = `<li class="card">
+	<img
+		class="card_img"
+		src="${inputPhoto}"
+		alt="maine-coon-cat"
+	/>
+	<h3 class="card_title">${inputName}</h3>
+	<h4 class="card_race">${inputRace}</h4>
+	<p class="card_description">${inputDesc}</p>
+	</li>`; 
+	return result 
+}
+
+/*-------Busqueda de gatitos---*/
 const buttonSearch = document.querySelector('.js-button-search');
 
 const input_search_desc = document.querySelector('.js_in_search_desc');
@@ -105,31 +126,31 @@ if(descrSearchText === "") {
 result.innerHTML = kittenOne+kittenTwo+kittenThree;
 }*/
 
-const formSection = document.querySelector('.js-new-form');
-const inputDesc = document.querySelector('.js-input-desc');
-const inputPhoto = document.querySelector('.js-input-photo');
-const inputName = document.querySelector('.js-input-name');
+
+
 const labelMessageError = document.querySelector('.js-label-error');
 const sectionButton = document.querySelector(".js-btn-add");
 
+function addNewKitten(event) {
+	event.preventDefault();
+	const valueDesc = inputDesc.value;
+ 	const valuePhoto = inputPhoto.value;
+ 	const valueName = inputName.value;
+	const valueRace = inputRace.value;
+	if (valueDesc === '' || valuePhoto === '' ||valueName === '') {
+	labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
+  	labelMessageError.classList.remove('hidden');
+	}else {
+		labelMessageError.classList.add('hidden');
+		listElement.innerHTML += renderKitten(valueDesc, valuePhoto, valueRace, valueName);
+		console.log('hola');
+}}
 
-//sectionButton.addEventListener('click', (event)=> {
-//  event.preventDefault();
-//  const valueDesc = inputDesc.value;
-//  const valuePhoto = inputPhoto.value;
-//  const valueName = inputName.value;
-//
-//if (valueDesc === '' || valuePhoto === '' || valueName //=== '') {
-//	console.log (labelMessageError); 
-//   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
-//} 
-//else (valueDesc !== '' || valuePhoto !== '' || //valueName !== ''); {
-//	labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
-//} 
-//}
-//); 
+sectionButton.addEventListener('click', addNewKitten);
 
 
+
+/*--------Seccion colapse------*/
 
 
 const linkNewFormElement = document.querySelector('.js-btn');
