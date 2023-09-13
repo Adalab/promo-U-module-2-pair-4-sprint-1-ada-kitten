@@ -65,8 +65,30 @@ const kittenThree = `<li class="card">
 
 listElement.innerHTML = kittenOne+kittenTwo+kittenThree; 
 
+const buttonSearch = document.querySelector('.js-button-search');
 
 const input_search_desc = document.querySelector('.js_in_search_desc');
+
+
+const filterKitten = (event) => {
+	event.preventDefault (); 
+	listElement.innerHTML = ''; 
+	const descrSearchText = input_search_desc.value;
+	if (kittenDescOne.includes(descrSearchText)) {
+	  listElement.innerHTML += kittenOne;
+	}
+	if (kittenDescTwo.includes(descrSearchText)) {
+	  listElement.innerHTML += kittenTwo;
+	}
+	if (kittenDescThree.includes(descrSearchText)) {
+	  listElement.innerHTML += kittenThree;
+	}
+  };
+
+buttonSearch.addEventListener('click', filterKitten);
+
+
+/*const input_search_desc = document.querySelector('.js_in_search_desc');
 const descrSearchText = input_search_desc.value;
 const result = document.querySelector ('.js-list');
 console.log(result);
@@ -81,10 +103,9 @@ if( kittenDescThree.includes(descrSearchText) ) {
 }
 if(descrSearchText === "") {
 result.innerHTML = kittenOne+kittenTwo+kittenThree;
-}
+}*/
 
 const formSection = document.querySelector('.js-new-form');
-formSection.classList.remove('collapsed');
 const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
@@ -92,53 +113,28 @@ const labelMessageError = document.querySelector('.js-label-error');
 const sectionButton = document.querySelector(".js-btn-add");
 
 
-sectionButton.addEventListener('click', (event)=> {
-  event.preventDefault();
-  const valueDesc = inputDesc.value;
-  const valuePhoto = inputPhoto.value;
-  const valueName = inputName.value;
-
-if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-	console.log (labelMessageError); 
-   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
-} 
-else (valueDesc !== '' || valuePhoto !== '' || valueName !== ''); {
-	labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
-} 
-}
-); 
-
-
-/*const formSection1 = document.querySelector('.js-new-form');
-
-const linkNewFormElement = document.querySelector ('.js-btn'); 
+//sectionButton.addEventListener('click', (event)=> {
+//  event.preventDefault();
+//  const valueDesc = inputDesc.value;
+//  const valuePhoto = inputPhoto.value;
+//  const valueName = inputName.value;
+//
+//if (valueDesc === '' || valuePhoto === '' || valueName //=== '') {
+//	console.log (labelMessageError); 
+//   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
+//} 
+//else (valueDesc !== '' || valuePhoto !== '' || //valueName !== ''); {
+//	labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"; 
+//} 
+//}
+//); 
 
 
-linkNewFormElement.addEventListener('click', handleClickNewCatForm);
-
-function showNewCatForm() {
-	formSection1.classList.remove('collapsed');
-  }
-function hideNewCatForm() {
-	formSection1.classList.add('collapsed');
-  }
 
 
-function handleClickNewCatForm(event) {
-	event.preventDefault();
-	if (formSection1.classList.contains('collapsed')) {
-		showNewCatForm(); 
-	} else {
-		hideNewCatForm(); 
-	}
-  }
+const linkNewFormElement = document.querySelector('.js-btn');
 
-
-  linkNewFormElement.addEventListener('click', handleClickNewCatForm);*/
-
-
-  	const linkNewFormElement = document.querySelector('.js-btn');
-	const newForm= document.querySelector('.js-new-form');
+const newForm= document.querySelector('.js-new-form');
 
 function showNewCatForm() {
   newForm.classList.remove('collapsed');
@@ -161,3 +157,6 @@ function handleClickNewCatForm(event) {
 }
 
 linkNewFormElement.addEventListener('click', handleClickNewCatForm);
+
+
+
