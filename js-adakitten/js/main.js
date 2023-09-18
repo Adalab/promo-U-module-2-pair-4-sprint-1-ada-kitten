@@ -10,8 +10,9 @@ const inputRace = document.querySelector('js-input-race');
 ///// ARRAYS Y OBJETOS///
 
 
-const kittenDataList = [
-    {
+
+	const kittenDataList = [
+	{
 	image: 'https://dev.adalab.es/gato-siames.webp',
 	name: 'Anastacio',
 	race: 'Siamés',
@@ -23,29 +24,37 @@ const kittenDataList = [
 	race: 'Sphynx',
 	desc: ' Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo. ',
      },
-    {
+	{
 	image: 'https://dev.adalab.es/maine-coon-cat.webp',
 	name:'Cielo',
 	race: 'Maine Coon',
 	desc: ' Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta. ',
     },
-]; 
+	]; 
+
+///////////////BUCLE
 
 function renderKitten(kittenDataList){
-	const li = `<li class="card">
-	<img
-		class="card_img"
-		src="${kittenDataList.image}"
-		alt="cat race"
-	/>
-	<h3 class="card_title">${kittenDataList.name}</h3>
-	<h4 class="card_race">${kittenDataList.race}</h4>
-	<p class="card_description">${kittenDataList.desc}</p>
-	</li>`; 
-	return li; 
-}
+		const li = `<li class="card">
+		<img
+			class="card_img"
+			src="${kittenDataList.image}"
+			alt="cat race"
+		/>
+		<h3 class="card_title">${kittenDataList.name}</h3>
+		<h4 class="card_race">${kittenDataList.race}</h4>
+		<p class="card_description">${kittenDataList.desc}</p>
+		</li>`; 
+		return li; 
+	}
 
-listElement.innerHTML = renderKitten (kittenDataList[0]) + renderKitten (kittenDataList[1]) + renderKitten (kittenDataList[2]);
+function renderKittenList(kittenDataList){
+  for (let i= 0; i < kittenDataList.length; i++){
+	listElement.innerHTML += renderKitten(kittenDataList[i]); 
+  }
+	}
+
+renderKittenList(kittenDataList); 
 
 /*-------Busqueda de gatitos---*/
 const buttonSearch = document.querySelector('.js-button-search');
@@ -53,18 +62,19 @@ const buttonSearch = document.querySelector('.js-button-search');
 const input_search_desc = document.querySelector('.js_in_search_desc');
 
 
+
 const filterKitten = (event) => {
 	event.preventDefault (); 
 	listElement.innerHTML = ''; 
 	const descrSearchText = input_search_desc.value;
 	if (kittenDataList.includes(descrSearchText)) {
-	  listElement.innerHTML += renderKitten (kittenDataList[0]);
+	  listElement.innerHTML += renderKitten (kittenDataList);
 	}
 	if (kittenDataList.includes(descrSearchText)) {
-	  listElement.innerHTML += renderKitten (kittenDataList[1]);
+	  listElement.innerHTML += renderKitten (kittenDataList);
 	}
 	if (kittenDataList.includes(descrSearchText)) {
-	  listElement.innerHTML += renderKitten (kittenDataList[2]);
+	  listElement.innerHTML += renderKitten (kittenDataList);
 	}
   };
 
